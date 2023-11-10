@@ -13,7 +13,6 @@ import { Models } from "appwrite"
 import { useCreatePost, useUpdatePost } from "@/lib/react-query/queries"
 import { useUserContext } from "@/context/AuthContext"
 import { useToast } from "../ui/use-toast"
-import { updatePost } from "@/lib/appwrite/api"
 import Loader from "../shared/Loader"
 
 type PostFormProps = {
@@ -24,7 +23,6 @@ type PostFormProps = {
 const PostForm = ({ post, action }: PostFormProps) => {
   const { mutateAsync: createPost, isPending: isLoadingCreate } = useCreatePost();
   const { mutateAsync: updatePost, isPending: isLoadingUpdate } = useUpdatePost();
-
 
   const { user } = useUserContext();
   const { toast } = useToast();
